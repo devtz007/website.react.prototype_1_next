@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // Modern JavaScript output
+    "lib": ["ESNext", "DOM", "DOM.Iterable"], // Use latest ECMAScript and DOM features
+    "module": "ESNext", // Use ES modules
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "jsx": "preserve",
+    "jsxImportSource": "react", // Specify the JSX import source
+    "exactOptionalPropertyTypes": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    //"forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "noEmitOnError": true, //Do not emit compiler output files like JavaScript source code, source-maps or declarations if any errors were reported.
+    "noImplicitAny": true,
+    "allowJs": true,
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "typeRoots": ["./src/types", "./node_modules/@types"]
+  },
+  "include": [
+    "./src/**/*",
+    "./next-env.d.ts",
+    "./global.d.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["./node_modules", "./dist", "./etc"]
+}

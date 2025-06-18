@@ -1,0 +1,31 @@
+# Ignore backup and temporary files
+*.bk
+*.tmp
+*.log
+
+# Ignore node and build files (if applicable)
+node_modules
+
+# Ignore IDE/editor config files
+.vscode
+*.sublime*
+*.idea
+*.iml
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore Git files
+.git
+.gitignore
+
+# Ignore Docker-related files that don’t need to be copied
+.dockerignore
+Dockerfile*
+docker-compose.yml
+
+# Environment files
+**/*.env*
+!**/empty.env

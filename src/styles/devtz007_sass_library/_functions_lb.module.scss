@@ -1,0 +1,9 @@
+// Complementary color converter
+@function complementary-color-f($base-color) {
+  $hue: color.hue($base-color);
+  $complementary-hue: if($hue > 180, $hue - 180, $hue + 180);
+  $complementary-color: color.adjust($base-color, $hue: $complementary-hue);
+  @return $complementary-color;
+}
+
+//-------techjork.com and devtz007-------//

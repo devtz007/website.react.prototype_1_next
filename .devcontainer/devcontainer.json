@@ -1,0 +1,49 @@
+{
+  "name": "company_website_1_next_dev",
+  "dockerComposeFile": "../docker/development/docker-compose.yml",
+  "service": "company_website_1_next_dev_container",
+  "workspaceFolder": "/workspace",
+  "postCreateCommand": "npm install",
+  "remoteEnv": {
+    "WAKATIME_API_KEY": "${containerEnv:WAKATIME_API_KEY}"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ExodiusStudios.comment-anchors",
+        "stylelint.vscode-stylelint",
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "jock.svg",
+        "WakaTime.vscode-wakatime",
+        "ChakrounAnas.turbo-console-log",
+        "github.vscode-github-actions"
+      ],
+      "settings": {
+        "terminal.integrated.env.linux": {
+          "WORKSPACE_PATH": "/workspace"
+        },
+        "eslint.validate": [
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact"
+        ],
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "prettier.requireConfig": true,
+        "eslint.format.enable": true,
+        // stylelint
+        "stylelint.validate": ["css", "scss"],
+        "stylelint.lintOnSave": true,
+        // Automatically fix problems on save for ESLint, Prettier, and Stylelint
+        "editor.codeActionsOnSave": {
+          "source.fixAll.stylelint": "explicit", // Fix Stylelint issues explicitly
+          "source.fixAll.eslint": "explicit", // Fix ESLint issues explicitly
+          "source.fixAll.prettier": "explicit" // Fix Prettier issues explicitly
+        }
+      }
+    }
+  }
+}

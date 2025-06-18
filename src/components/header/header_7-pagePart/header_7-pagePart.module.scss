@@ -1,0 +1,54 @@
+/* header.module.scss */
+@use "@/styles/devtz007_sass_library/_mixin_flex_lb.module.scss" as mif;
+
+.header_7_pagePart {
+  font-size: 1rem;
+  @include mif.flex-row-jsb-ac;
+  gap: 20px;
+  min-width: 100%;
+  padding: 10px;
+  margin: 0 auto;
+  border: 1px solid var(--first-border-color, gray);
+  border-radius: 8px;
+  background-color: rgb(6 6 6 / 20%);
+
+  .logo {
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  .image {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .actions {
+    @include mif.flex-row;
+    gap: 10px;
+  }
+
+  .link {
+    @include mif.flex-row-ac;
+    font-size: 1em;
+    gap: 8px;
+    background: var(--third-background-color);
+    padding: 8px 16px;
+    border: 1px solid var(--first-border-color, gray);
+    border-radius: 99999px;
+    color: rgb(var(--first-text-color, 255, 255, 255));
+
+    .icon {
+      width: 1em;
+      aspect-ratio: 1/1;
+      display: none;
+    }
+
+    &_signUp {
+      background-color: var(--primary-color, teal);
+      color: rgb(var(--first-text-color, 255, 255, 255));
+      border: 1px solid white;
+    }
+  }
+}

@@ -1,0 +1,180 @@
+// global.scss
+@use "@/styles/devtz007_sass_library/_reset_lb";
+@use "@/styles/devtz007_sass_library/_mixin_flex_lb.module.scss" as mif;
+
+:root {
+  //******* Color *******//
+  //~~~~~White~~~~~//
+  --pure-white: #fff; // Lightest (pure white)
+  --light-mist-white: #edf3f6; // Mid-tone
+  --dusty-white: #e3e7ea; // Darkest
+  --frosted-white: #ffffff1a;
+
+  //~~~~~Ash~~~~~//
+  --light-ash-gray: #e7e7e7;
+  --medium-ash-gray: #7c7c7c;
+
+  //~~~~~Black~~~~~//
+  --black: #000;
+  --eerie-black: #161616;
+  --dark-charcoal: #141414;
+  --charcoal: #262626;
+
+  //~~~~~Gray~~~~~//
+  --charcoal-gray: #333;
+
+  //~~~~~Teal~~~~~//
+  --bright-teal: #00b9bc;
+  --pastel-teal: #d9f5f0;
+  --eucalyptus: #30d6ad;
+
+  //-----Aqua-----//
+  --pale-aqua: #daf0ef;
+
+  //---Blue---//
+  --royal-blue: #4c74db;
+
+  //-----Green-----//
+  --medium-jungle-green: #45b152;
+  --charcoal-green: #1c2624;
+
+  //------red-------//
+  --crimson: crimson;
+  --light-crimson: #e35454;
+
+  //******* Box shadow *******//
+  --box-shadow-1: rgb(0 0 0 / 10%) 0px 8px 32px 0px;
+
+  // Apply whole website
+  --primary-color: #30d6ad;
+  --second-color: #1c2624;
+  --first-background-color: #020202;
+  --second-background-color: #060606;
+  --third-background-color: #1b1b1b;
+  --fourth-background-color: #3e3e3e;
+  --fifth-background-color: 255, 255, 255;
+  --first-text-color: 255, 255, 255;
+  --second-text-color: #b3b3b3;
+  --third-text-color: black;
+  --first-border-color: var(--frosted-white);
+  --second-border-color: rgb(255 255 255 / 10%);
+}
+
+@font-face {
+  font-family: RubikRegular;
+  src: url("./fonts/rubik/Rubik-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+//*******html,body,root,main*******//
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  font-family: RubikRegular, Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+body {
+  font-size: 16px;
+  max-width: 1920px;
+  height: 100vh;
+  margin: 0 auto;
+  background: var(--first-background-color, black);
+  overflow: hidden;
+}
+
+main,
+.layout {
+  background: var(--first-background-color, black);
+}
+
+.custom_scrollbar_1 {
+  overflow-y: auto;
+  width: 100%;
+  height: 100vh;
+}
+
+//*******Page*******//
+.page {
+  width: 100%;
+}
+
+.page_type_1 {
+  width: 100%;
+  padding: calc(69px) 0 50px;
+}
+
+//*******Others*******//
+.width_wrapper_type_1 {
+  width: 90%;
+}
+
+.width_wrapper_type_2 {
+  width: 100%;
+}
+
+.icon_cont_type_1,
+.icon_container_type_1,
+.icon_content_type_1 {
+  @include mif.flex-jc-ac;
+
+  svg,
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.image_cont_type_1,
+.image_container_type_1,
+.image_content_type_1 {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.button_cont_type_1 {
+  display: flex;
+}
+
+.divider_type_1 {
+  width: 1px;
+  background-color: var(--charcoal-gray, gray);
+  margin: 10px 20px;
+}
+
+//******* my_container *******//
+.my_container_type_1 {
+  @include mif.flex-jc;
+
+}
+
+//******* Border *******//
+.border_type_1 {
+  border: 1px solid var(--frosted-white, gray);
+}
+
+.border_bottom_type_1 {
+  border-bottom: 1px solid var(--frosted-white, gray);
+}
+
+//******* Heading *******//
+.heading_type_1 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgb(var(--first-text-color, 255, 255, 255));
+}
+
+.heading_type_2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgb(var(--first-text-color, 255, 255, 255));
+}

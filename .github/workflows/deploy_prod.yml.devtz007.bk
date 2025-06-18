@@ -1,0 +1,88 @@
+name: company_website_1_next
+
+on:
+  push:
+    branches:
+      - main # Trigger on push to the main branch
+
+jobs:
+  build-and-deploy:
+    if: contains(github.event.head_commit.message, 'deploy_prod=true')
+    runs-on: ubuntu-latest
+
+    env:
+      REMOTE_USER: ${{ secrets.REMOTE_USER }}
+      REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+      REMOTE_DIR: '/home/user1/my_websites/company_website_1_next'
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Setup SSH key on GitHub runner
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.REMOTE_HOST }} > ~/.ssh/known_hosts
+
+      # Step 3: Install Docker on the remote server
+      - name: Install Docker and Docker Compose on the remote server
+        run: |
+          ssh -i ~/.ssh/id_rsa ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }} << EOF
+            set -e  # Exit immediately if a command fails
+
+            # Install Docker if not already installed
+            if ! command -v docker &>/dev/null; then
+              sudo apt-get update
+              sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+              curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+              sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \$(lsb_release -cs) stable"
+              sudo apt-get update
+              sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+              sudo systemctl start docker
+              sudo systemctl enable docker
+            fi
+
+            # Install Docker Compose if not already installed
+            if ! command -v docker-compose &>/dev/null; then
+              sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-\$(uname -s)-\$(uname -m)" -o /usr/local/bin/docker-compose
+              sudo chmod +x /usr/local/bin/docker-compose
+            fi
+          EOF
+
+      # Step 4: Deploy .next, docker-compose.yml, and next.config.ts to the remote server
+      - name: Deploy .next, docker-compose.yml, and next.config.ts via SCP
+        run: |
+          # SSH into the remote server and clean up the existing remote directory (if it exists)
+          ssh -i ~/.ssh/id_rsa ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }} << EOF
+            # Remove the previous directory if it exists
+            if [ -d "${{ env.REMOTE_DIR }}" ]; then
+              rm -rf ${{ env.REMOTE_DIR }}
+            fi
+            # Recreate the directory
+            mkdir -p ${{ env.REMOTE_DIR }}
+          EOF
+
+          # Copy the .next folder to the remote server
+          scp -i ~/.ssh/id_rsa -r .next ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }}:${{ env.REMOTE_DIR }}
+
+          # Copy the next.config.ts file to the remote server
+          scp -i ~/.ssh/id_rsa next.config.ts ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }}:${{ env.REMOTE_DIR }}
+
+          # Copy the package.json file to the remote server
+          scp -i ~/.ssh/id_rsa package.json ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }}:${{ env.REMOTE_DIR }}
+
+          # Copy the docker-compose.yml file to the remote server
+          scp -i ~/.ssh/id_rsa docker/production/docker-compose.yml ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }}:${{ env.REMOTE_DIR }}
+
+      # Step 5: Run docker-compose on the remote server
+      - name: Run docker-compose on the remote server
+        run: |
+          ssh -i ~/.ssh/id_rsa ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }} << EOF
+            cd ${{ env.REMOTE_DIR }}
+            docker-compose down
+            docker-compose up -d
+          EOF

@@ -1,0 +1,17 @@
+services:
+  company_website_1_next_dev_container:
+    env_file:
+    - path: .env
+      required: false
+    - path: ./empty.env
+      required: true
+    build:
+      context: . # Use the Dockerfile in this directory
+      dockerfile: Dockerfile
+    container_name: company_website_1_next_dev
+    volumes:
+      - ../../:/workspace
+    ports:
+      - '3001:3000'
+      - '9230:9229'
+    command: tail -f /dev/null # Keep the container running
