@@ -24,6 +24,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <StoreProvider>
       <html lang="en" className={font.className}>
         <body>{children}</body>
+        
       </html>
     </StoreProvider>
   );
