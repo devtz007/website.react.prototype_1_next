@@ -1,7 +1,7 @@
 {
-  "name": "company_portfolio_2_next_devContainer",
+  "name": "prototype_1_next_dev",
   "dockerComposeFile": "../docker/development/docker-compose.yml",
-  "service": "company_portfolio_1_next_dev_container",
+  "service": "prototype_1_next_devContainer",
   "workspaceFolder": "/workspace",
   "postCreateCommand": "npm install -g npm@latest && npm install",
   "forwardPorts": [3000],

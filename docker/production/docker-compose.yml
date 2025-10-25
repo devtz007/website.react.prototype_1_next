@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   node-react:
-    container_name: company_portfolio_1_next_prod
+    container_name: prototype_1_next_prod
     image: node:lts-alpine
     working_dir: /app
     ports:
