@@ -1,109 +1,37 @@
-import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+/* layout.tsx */
 
+/* Import components */
+import React, { Suspense } from 'react';
+import SimpleBarWrapper from '@/clientSide_wrappers/simpleBar_wrapper';
+import ScrollToComponentWrapper from '@/clientSide_wrappers/ScrollToComponentWrapper';
+
+/* Import styles */
 import styles from './layout.module.scss';
 
-import Footer3PagePart from '@/components/footer/footer_3-pagePart/footer_3-pagePart';
-
-/* Home3Layout component defines the layout structure of the homepage */
+/**
+ * Home3Layout component
+ *
+ * Defines the shell for the home route group, rendering a header, the route's
+ * main content, and a footer with predefined menus.
+ *
+ * @param children - React children representing the page content for this layout.
+ * @returns The composed layout with header, main and footer.
+ */
 const Home3Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className={styles.home_3_layout}>
-      {/* custom_scrollbar_1 class is used to apply custom scrollbar styles */}
+    <div className={`${styles.home_3_layout} home_3_layout`}>
+      {/* header */}
 
-      <div className="custom_scrollbar_1">
+      <SimpleBarWrapper>
         {/* main content */}
         <main className={styles.home_main}>{children}</main>
         {/* footer */}
-        <Footer3PagePart
-          infoP={{
-            footerMenus: [
-              {
-                heading: 'Explore',
-                item: [
-                  {
-                    text: 'Browse Mentor',
-                    value: 'browse_mentor',
-                    link: '#',
-                  },
-                  {
-                    text: 'Become A Mentor',
-                    value: 'become_mentor',
-                    link: '#',
-                  },
-                  {
-                    text: 'Mentee Register',
-                    value: 'mentee_register',
-                    link: '#',
-                  },
-                ],
-              },
-              {
-                heading: 'About',
-                item: [
-                  {
-                    text: 'Terms & Conditions',
-                    value: 'terms_conditions',
-                    link: '#',
-                  },
-                  {
-                    text: 'Privacy Policy',
-                    value: '',
-                    link: '#',
-                  },
-                  {
-                    text: 'Contact Us',
-                    value: '',
-                    link: '#',
-                  },
-                ],
-              },
-              {
-                heading: 'Social',
-                item: [
-                  {
-                    text: 'Linkedin',
-                    value: 'linkedin',
-                    link: '#',
-                  },
-                  {
-                    text: 'Facebook',
-                    value: 'facebook',
-                    link: '#',
-                  },
-                  {
-                    text: 'X (Twitter)',
-                    value: 'x_twitter',
-                    link: '#',
-                  },
-                ],
-              },
-            ],
-
-            social: [
-              {
-                icon: <Linkedin color="var(--second-text-color, #f5f5f5)" />,
-                linkHref: '#',
-              },
-              {
-                icon: <Facebook color="var(--second-text-color, #f5f5f5)" />,
-                linkHref: '#',
-              },
-              {
-                icon: <Twitter color="var(--second-text-color, #f5f5f5)" />,
-                linkHref: '#',
-              },
-              {
-                icon: <Instagram color="var(--second-text-color, #f5f5f5)" />,
-                linkHref: '#',
-              },
-            ],
-          }}
-        />
-      </div>
+      </SimpleBarWrapper>
+      <Suspense fallback={null}>
+        <ScrollToComponentWrapper />
+      </Suspense>
     </div>
   );
 };
-
-Home3Layout.displayName = 'Home3Layout';
 
 export default Home3Layout;

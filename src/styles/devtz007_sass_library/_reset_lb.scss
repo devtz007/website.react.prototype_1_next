@@ -16,8 +16,9 @@ html {
   border: none;
   outline: none;
   box-sizing: inherit;
-  word-break: break-word;
+  overflow-wrap: break-word;
   word-wrap: break-word;
+  word-break: normal;
   border-width: 0;
   border-style: solid;
 }

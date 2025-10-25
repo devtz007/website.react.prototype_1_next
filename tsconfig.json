@@ -41,5 +41,5 @@
     "./global.d.ts",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["./node_modules", "./dist", "./etc"]
+  "exclude": ["./node_modules", "./dist"]
 }

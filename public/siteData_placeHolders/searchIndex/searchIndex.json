@@ -1,0 +1,25 @@
+[
+  {
+    "componentId": "Contact3PagePart_1",
+    "page": "contact/",
+    "metaData": ["social", "email", "Find Us"]
+  },
+  {
+    "componentId": "SocialIcons1PagePart_1",
+    "page": "",
+    "metaData": ["facebook", "linkedin", "twitter", "x", " media"]
+  },
+  {
+    "componentId": "About1PagePart_1",
+    "page": "about_us/",
+    "metaData": [
+      "about our company",
+      "about us",
+      "our story",
+      "company history",
+      "mission",
+      "vision",
+      "company info"
+    ]
+  }
+]

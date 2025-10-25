@@ -1,12 +1,11 @@
-//src/global.d.ts
+//global.d.ts
+/* eslint */
 declare module '@next/eslint-plugin-next';
 
-// types
+/* rgb color */
 type RGBColor = `rgb(${number}, ${number}, ${number})`;
 
-declare module '@canvasjs/react-charts';
-
-/**~~~~~file extensions~~~~~**/
+/*file extensions*/
 declare module '*.svg' {
   const content: string;
   export default content;

@@ -1,5 +1,5 @@
+//_mixin_flex_lb.module.scss
 //~~~~~~~~flex~~~~~~~//
-
 @mixin flex {
   display: flex;
 }
@@ -78,7 +78,8 @@
 }
 
 //--------------------------//
-//~~~~~~~~flex column~~~~~~~//
+//~~~~~~~~flex column~~~~~~~/
+/* justify-content */
 @mixin flex-col {
   display: flex;
   flex-direction: column;
@@ -90,7 +91,7 @@
   align-items: flex-start;
 }
 
-//~~~~~~~~justify-content variants~~~~~~~//
+// justify-content variants for flex-direction: column
 @mixin flex-col-jc {
   display: flex;
   flex-direction: column;
@@ -114,9 +115,7 @@
   flex-direction: column;
   justify-content: space-around;
 }
-
-//~~~~~~~~align-items variants~~~~~~~~//
-//center
+// align-items variants for flex-direction: column
 @mixin flex-col-ac {
   display: flex;
   flex-direction: column;
@@ -141,8 +140,7 @@
   align-items: space-around;
 }
 
-//~~~~~~~justify-content variants for align-items~~~~~~~//
-//justify-content variants for align-items=center
+//justify-content variants for flex-direction: column; & align-items: center;
 @mixin flex-col-jc-ac {
   display: flex;
   flex-direction: column;
@@ -171,7 +169,7 @@
   align-items: center;
 }
 
-//justify-content variants for align-items=space-between
+//justify-content variants for flex-direction: column; & align-items: space-between;
 @mixin flex-col-jc-asb {
   display: flex;
   flex-direction: column;
@@ -200,8 +198,7 @@
   align-items: space-between;
 }
 
-//justify-content variants for align-items= space-evenly
-
+//justify-content variants for flex-direction: column; & align-items: space-evenly;
 @mixin flex-col-jsb-ase {
   display: flex;
   flex-direction: column;
@@ -223,7 +220,7 @@
   align-items: space-evenly;
 }
 
-//justify-content variants for align-items= space-around
+//justify-content variants for flex-direction: column; & align-items: space-around
 @mixin flex-col-jsb-asa {
   display: flex;
   flex-direction: column;
@@ -245,8 +242,7 @@
   align-items: space-around;
 }
 
-//justify-content variants for align-items= flex-start
-
+//justify-content variants for flex-direction: column; & align-items: flex-start;
 @mixin flex-col-jc-as {
   display: flex;
   flex-direction: column;
@@ -275,8 +271,7 @@
   align-items: flex-start;
 }
 
-//justify-content variants for align-items= flex-end
-
+//justify-content variants for flex-direction: column; & align-items: flex-end
 @mixin flex-col-jc-ae {
   display: flex;
   flex-direction: column;
@@ -305,8 +300,9 @@
   align-items: flex-end;
 }
 
-//~~~~~~~align-items variants for justify-content~~~~~~~//
-//align-items variants for justify-content=center
+/* align-items */
+//align-items variants for flex-direction: column; & justify-content: center;
+
 @mixin flex-col-jc-ase {
   display: flex;
   flex-direction: column;

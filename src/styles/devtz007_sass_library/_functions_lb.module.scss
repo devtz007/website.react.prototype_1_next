@@ -1,4 +1,4 @@
-// Complementary color converter
+/* Complementary color converter */
 @function complementary-color-f($base-color) {
   $hue: color.hue($base-color);
   $complementary-hue: if($hue > 180, $hue - 180, $hue + 180);

@@ -1,9 +1,10 @@
 {
-  "name": "company_website_1_next_dev",
+  "name": "company_portfolio_2_next_devContainer",
   "dockerComposeFile": "../docker/development/docker-compose.yml",
-  "service": "company_website_1_next_dev_container",
+  "service": "company_portfolio_1_next_dev_container",
   "workspaceFolder": "/workspace",
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "npm install -g npm@latest && npm install",
+  "forwardPorts": [3000],
   "remoteEnv": {
     "WAKATIME_API_KEY": "${containerEnv:WAKATIME_API_KEY}"
   },
@@ -19,7 +20,8 @@
         "jock.svg",
         "WakaTime.vscode-wakatime",
         "ChakrounAnas.turbo-console-log",
-        "github.vscode-github-actions"
+        "github.vscode-github-actions",
+        "stevensona.character-count"
       ],
       "settings": {
         "terminal.integrated.env.linux": {
@@ -42,6 +44,39 @@
           "source.fixAll.stylelint": "explicit", // Fix Stylelint issues explicitly
           "source.fixAll.eslint": "explicit", // Fix ESLint issues explicitly
           "source.fixAll.prettier": "explicit" // Fix Prettier issues explicitly
+        },
+        // anchor
+        "commentAnchors.tags.anchors": {
+          "ANCHOR": {
+            "scope": "file",
+            "iconColor": "default",
+            "highlightColor": "#A8C023",
+            "styleMode": "comment"
+          },
+          "HOLDER": {
+            "scope": "file",
+            "iconColor": "default",
+            "highlightColor": "#ECEAE4",
+            "styleMode": "comment"
+          },
+          "CONTAINER": {
+            "scope": "file",
+            "iconColor": "default",
+            "highlightColor": "crimson",
+            "styleMode": "comment"
+          },
+          "DOCUMENTATION": {
+            "scope": "file",
+            "iconColor": "default",
+            "highlightColor": "#F8FAFC",
+            "styleMode": "comment"
+          },
+          "COMPONENT": {
+            "scope": "file",
+            "iconColor": "default",
+            "highlightColor": "#16FF00",
+            "styleMode": "comment"
+          }
         }
       }
     }

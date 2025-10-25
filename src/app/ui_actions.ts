@@ -17,7 +17,7 @@ export async function UiActionStore(updateInfo: { [key: string]: boolean }) {
     store.set(validatorTag, newInfo);
     revalidateTag(validatorTag); // purge cache for the specific tag
   }
-  console.log(updateInfo);
+  //console.log(updateInfo);
 }
 
 /**

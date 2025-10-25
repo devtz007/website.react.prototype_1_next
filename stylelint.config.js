@@ -21,6 +21,7 @@ export default {
       },
     ],
     'selector-class-pattern': null, // Disable the class name pattern enforcement
+    'keyframes-name-pattern': null,
 
     // Disallow empty lines between declarations
     'declaration-empty-line-before': [
