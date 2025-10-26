@@ -1,15 +1,15 @@
-/* whatsApp_1-icon.tsx */
+/* prototype_1-icon.tsx */
 
 /**
  * Renders the WhatsApp icon as an SVG element.
  *
  * @example
- * <WhatsApp1Icon/>
+ * <Prototype1Icon/>
  *
  * @returns The SVG representation of the WhatsApp icon.
  */
 
-const WhatsApp1Icon = () => {
+const Prototype1Icon = () => {
   return (
     <svg
       height="200px"
@@ -44,4 +44,4 @@ const WhatsApp1Icon = () => {
   );
 };
 
-export default WhatsApp1Icon;
+export default Prototype1Icon;

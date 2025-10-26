@@ -1,19 +1,19 @@
-//global.d.ts
-/* eslint */
-declare module '@next/eslint-plugin-next';
+// src/global.d.ts
+/* Eslint */
+//declare module '@next/eslint-plugin-next';
 
-/* rgb color */
-type RGBColor = `rgb(${number}, ${number}, ${number})`;
+/* Color */
+//type RGBColor = `rgb(${number}, ${number}, ${number})`;
 
-/*file extensions*/
-declare module '*.svg' {
-  const content: string;
-  export default content;
-}
-
+/* File extensions */
 declare module '*.module.scss' {
   const classes: { [key: string]: string };
   export default classes;
+}
+
+declare module '*.svg' {
+  const content: string;
+  export default content;
 }
 
 declare module '*.png' {
@@ -27,11 +27,6 @@ declare module '*.jpg' {
 }
 
 declare module '*.jpeg' {
-  const value: string;
-  export default value;
-}
-
-declare module '*.gif' {
   const value: string;
   export default value;
 }

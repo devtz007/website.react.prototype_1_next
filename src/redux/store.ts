@@ -1,16 +1,19 @@
-import { configureStore } from '@reduxjs/toolkit';
-import textReducer from './slices/textSlice';
-import VMenus1PagePartStatusReducer from './slices/VMenus1PagePartStatusSlice';
+// store.ts
 
+import { configureStore } from '@reduxjs/toolkit';
+import Demo1Slice from './slices/demo_1-Slice';
+
+// Function to create and configure the Redux store
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      text: textReducer,
-      VMenus1PagePartStatus: VMenus1PagePartStatusReducer,
+      // Register the Demo1Slice reducer under the 'text' key
+      text: Demo1Slice,
     },
   });
 };
 
+// Define types for the Redux store, root state, and dispatch
 export type AppStore = ReturnType<typeof makeStore>;
 export type RootState = ReturnType<AppStore['getState']>;
 export type AppDispatch = AppStore['dispatch'];
