@@ -5,7 +5,6 @@
 
 # Ignore node and build files (if applicable)
 node_modules
-package-lock.json
 
 # Ignore IDE/editor config files
 .vscode
@@ -29,4 +28,3 @@ docker-compose.yml
 
 # Environment files
 **/*.env*
-!**/empty.env

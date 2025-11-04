@@ -1,12 +1,18 @@
 {
   "compilerOptions": {
     "target": "ESNext", // Modern JavaScript output
-    "lib": ["ESNext", "DOM", "DOM.Iterable"], // Use latest ECMAScript and DOM features
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ], // Use latest ECMAScript and DOM features
     "module": "ESNext", // Use ES modules
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
     "jsx": "preserve",
     "jsxImportSource": "react", // Specify the JSX import source
@@ -33,13 +39,19 @@
         "name": "next"
       }
     ],
-    "typeRoots": ["./src/types", "./node_modules/@types"]
+    "typeRoots": [
+      "./src/types",
+      "./node_modules/@types"
+    ]
   },
   "include": [
-    "./src/**/*",
-    "./next-env.d.ts",
     "./global.d.ts",
+    "./next-env.d.ts",
+    "./src/**/*",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["./node_modules", "./dist"]
+  "exclude": [
+    "./node_modules",
+    "./dist"
+  ]
 }

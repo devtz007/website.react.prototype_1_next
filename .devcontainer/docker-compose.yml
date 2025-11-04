@@ -1,0 +1,11 @@
+services:
+  prototype_1_next_devContainer:
+    container_name: prototype_1_next_dev
+    env_file:
+      - .env
+    image: mcr.microsoft.com/devcontainers/javascript-node
+    volumes:
+      - ../:/workspace
+    ports:
+      - "1112:1112"
+    command: tail -f /dev/null

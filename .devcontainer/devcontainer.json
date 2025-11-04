@@ -1,10 +1,11 @@
 {
   "name": "prototype_1_next_dev",
-  "dockerComposeFile": "../docker/development/docker-compose.yml",
+  "dockerComposeFile": "./docker-compose.yml",
   "service": "prototype_1_next_devContainer",
   "workspaceFolder": "/workspace",
   "postCreateCommand": "npm install -g npm@latest && npm install",
-  "forwardPorts": [3000],
+  "postStartCommand": "if [ \"${DEV_CONTAINER_MODE}\" = \"development\" ]; then npm run dev; fi",
+  "forwardPorts": [1112],
   "remoteEnv": {
     "WAKATIME_API_KEY": "${containerEnv:WAKATIME_API_KEY}"
   },
@@ -24,6 +25,8 @@
         "stevensona.character-count"
       ],
       "settings": {
+        // Disable automatic port forwarding - we use docker-compose port mapping instead
+        "remote.autoForwardPorts": false,
         "terminal.integrated.env.linux": {
           "WORKSPACE_PATH": "/workspace"
         },

@@ -1,6 +1,6 @@
 {
-  "name": "prototype_1_next",
-  "version": "0.0.1",
+  "name": "prototype_1_next_dev",
+  "version": "1.0.0",
   "type": "module",
   "keywords": [
     "nextjs",
@@ -9,21 +9,16 @@
     "JavaScript"
   ],
   "scripts": {
-    "dev": "cross-env NODE_ENV=development next dev --turbopack",
+    "dev": "cross-env NODE_ENV=development next dev --turbopack -H 0.0.0.0 -p 1112",
     "build": "cross-env NODE_ENV=production next build",
-    "start": "cross-env NODE_ENV=production next start",
+    "start": "cross-env NODE_ENV=production next start -p 1111",
     "eslint": "eslint src --ext .js,.jsx,.ts,.tsx",
     "eslint:fix": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
     "stylelint": "stylelint 'src/**/*.{css,scss}'",
     "stylelint:fix": "stylelint 'src/**/*.{css,scss}' --fix"
   },
   "dependencies": {
-    "@react-three/drei": "^10.7.6",
-    "@react-three/fiber": "^9.4.0",
     "@reduxjs/toolkit": "^2.9.0",
-    "axios": "^1.12.2",
-    "bcryptjs": "^3.0.2",
-    "framer-motion": "^12.23.24",
     "next": "^15.5.4",
     "nodemailer": "^7.0.9",
     "react": "^19.2.0",
@@ -31,8 +26,7 @@
     "react-redux": "^9.2.0",
     "react-turnstile": "^1.1.4",
     "simplebar": "^6.3.2",
-    "simplebar-react": "^3.3.2",
-    "three": "^0.180.0"
+    "simplebar-react": "^3.3.2"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^15.5.4",
@@ -40,7 +34,6 @@
     "@types/nodemailer": "^7.0.2",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
-    "@types/three": "^0.180.0",
     "@typescript-eslint/eslint-plugin": "^8.46.0",
     "@typescript-eslint/parser": "^8.46.0",
     "cross-env": "^10.1.0",
@@ -56,6 +49,7 @@
     "eslint-plugin-react-refresh": "^0.4.23",
     "eslint-plugin-tsdoc": "^0.4.0",
     "eslint-plugin-unused-imports": "^4.2.0",
+    "globals": "^16.4.0",
     "lucide-react": "^0.545.0",
     "prettier": "^3.6.2",
     "sass": "^1.93.2",
@@ -68,7 +62,6 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.0",
     "web-vitals": "^5.1.0",
-    "zod": "^4.1.12",
-    "globals": "^16.4.0"
+    "zod": "^4.1.12"
   }
 }
