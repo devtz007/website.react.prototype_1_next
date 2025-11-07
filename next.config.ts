@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
   },
 
   // ✅ Transpile packages (for Three.js / R3F compatibility)
-  transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
+  transpilePackages: [],
 
   // ✅ Enable gzip compression & disable the X-Powered-By header
   compress: true,

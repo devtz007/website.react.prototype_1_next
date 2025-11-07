@@ -39,7 +39,7 @@ export default {
         ignore: ['after-comment'], // Ignore after comments
       },
     ],
-    'no-descending-specificity': null,
+    'no-invalid-position-declaration': [true, { ignoreAtRules: ['media'] }],
   },
   overrides: [
     {
